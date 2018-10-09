@@ -50,6 +50,8 @@ def get_watched_movies():
     return Movie.query.filter_by(watched=True).all()
 
 # TODO 3: Add "/login" GET and POST routes.
+
+
 # TODO 4: Create login template with username and password.
 #         Notice that we've already created a 'login' link in the upper-right corner of the page that'll connect to it.
 
@@ -62,7 +64,10 @@ def register():
             flash('zoiks! "' + email + '" does not seem like an email address')
             return redirect('/register')
         # TODO 1: validate that form value of 'verify' matches password
+
         # TODO 2: validate that there is no user with that email already
+
+
         user = User(email=email, password=password)
         db.session.add(user)
         db.session.commit()

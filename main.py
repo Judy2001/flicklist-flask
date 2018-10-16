@@ -63,7 +63,9 @@ def register():
         if not is_email(email):
             flash('zoiks! "' + email + '" does not seem like an email address')
             return redirect('/register')
+
         # TODO 1: validate that form value of 'verify' matches password
+        
 
         # TODO 2: validate that there is no user with that email already
 
@@ -163,6 +165,8 @@ def index():
 
 # TODO 5: modify this function to rely on a list of endpoints that users can visit without being redirected.
 #         It should contain 'register' and 'login'.
+
+
 @app.before_request
 def require_login():
     if not ('user' in session or request.endpoint == 'register'):

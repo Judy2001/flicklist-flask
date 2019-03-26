@@ -17,7 +17,7 @@ def index():
     content += "<li>" + todays_movie + "</li>"
     content += "</ul>"
 
-    content += "<h1>Tomorrow's Movie of the Day</h1>"
+    content += "<h1>Tomorrow's Movie</h1>"
     content += "<ul>"
     content += "<li>" + tomorrows_movie + "</li>"
     content += "</ul>"
@@ -25,7 +25,8 @@ def index():
     return content
 
 def get_random_movie():
-    return random.choice(["The Big Lebowski", "The Royal Tenenbaums", "Princess Mononoke", "The Princess Bride", "Star Trek IV: The Voyage Home"])
+    return random.choice(["The Boondock Saints", "The Matrix", "M*A*S*H", "The Big Lebowski", "The Replacements"]
+)
 
 
 app.run()

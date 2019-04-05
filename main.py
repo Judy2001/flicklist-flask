@@ -43,13 +43,13 @@ def add_movie():
 
     # if the user typed nothing at all, redirect and tell them the error
     if (not new_movie) or (new_movie.strip() == ""):
-        error_arg = "Please specify the movie you want to add."
-        return redirect("/?error=" + cgi.escape(error, quote=True))
+        error = "Please specify the movie you want to add."
+        return redirect("/?error=" + error)
 
     # if the user wants to add a terrible movie, redirect and tell them the error
     if new_movie in terrible_movies:
-        error_arg = "Trust me, you don't want to add '{0}' to your Watchlist".format(new_movie)
-        return redirect("/?error=" + cgi.escape(error, quote=True))
+        error = "Trust me, you don't want to add '{0}' to your Watchlist".format(new_movie)
+        return redirect("/?error=" + error)
 
     # 'escape' the user's input so that if they typed HTML, it doesn't mess up our site
     new_movie_escaped = cgi.escape(new_movie, quote=True)
@@ -62,7 +62,7 @@ def index():
     # if we have an error
     error_arg = request.args.get("error")
 
-    return render_template("index.html", watch_list=get_current_watchlist(), error=error_arg)
+    return render_template("edit.html", watch_list=get_current_watchlist(), error=error_arg and egi.escap(error_arg, quote=True))
 
 
 app.run()

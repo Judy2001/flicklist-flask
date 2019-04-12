@@ -1,9 +1,12 @@
 from flask import Flask, request, redirect, render_template
 import cgi
 
+
 app = Flask(__name__)
 
+
 app.config['DEBUG'] = True      # displays runtime errors in the browser, too
+
 
 # a list of movies that nobody should have to watch
 terrible_movies = [
@@ -13,6 +16,7 @@ terrible_movies = [
     "Nine Lives",
     "Starship Troopers"
 ]
+
 
 def get_current_watchlist():
     # returns user's current watchlist--hard coded for now
@@ -89,5 +93,6 @@ def add_movie():
 def index():
     encoded_error = request.args.get("error")
     return render_template('edit.html', watchlist=get_current_watchlist(), error=encoded_error and cgi.escape(encoded_error, quote=True))
+
 
 app.run()
